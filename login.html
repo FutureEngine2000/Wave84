@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wave84 - Login</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="login.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon"> 
+</head>
+<body>
+  <div class="background"></div>
+
+  <main class="container">
+    <form method="POST" action="login.php">
+      <h1>Login</h1>
+    
+      <div class="input-box">
+        <input type="text" name="usuario" placeholder="Usuário" required />
+        <i class="bx bxs-user"></i>
+      </div>
+
+      <div class="input-box">
+        <input type="password" name="senha" placeholder="Senha" required />
+        <i class="bx bxs-lock-alt"></i>
+      </div>
+
+
+      <button type="submit" class="login">Entrar</button>
+
+      <div class="register-link">
+        <p>Não tem uma conta? <a href="registro.html">Cadastre-se</a></p>
+      </div>
+    </form>
+  </main>
+  <form action="index.html">
+       <a href="index.html" class="seta-bonita">
+  ← Voltar
+</a>
+</form>
+</body>
+</html>

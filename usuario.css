@@ -1,0 +1,124 @@
+   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      background-image: url(img/cid.png);
+      background-size: cover;
+
+    }
+
+    h1 {
+      color: #fdfdfd;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .form-area, .profile-card {
+      background-color: #1e1e2f;
+      border: 2px solid #456a62;
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 0 25px #00ffcc33;
+    }
+
+    .form-area input[type="text"],
+    .form-area input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #2c2c3e;
+      color: white;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .form-area label {
+      display: block;
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+
+    .form-area input[type="file"] {
+      margin-bottom: 15px;
+    }
+
+    .profile-card {
+      text-align: center;
+    }
+
+    .profile-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #00ffcc;
+      margin-bottom: 15px;
+    }
+
+    .profile-card .username {
+      font-size: 24px;
+      color: #00ffcc;
+    }
+
+    .profile-card .level,
+    .profile-card .tagline {
+      font-size: 16px;
+      color: #ccc;
+      margin: 5px 0;
+    }
+
+    .save-btn {
+      background-color: #c3c3c3;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .save-btn:hover {
+      background-color: #cdfdf6;
+    }
+    
+    .seta-bonita {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background-color: #3c13ad; 
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+}
+
+.seta-bonita:hover {
+  background-color: #2a517d80; 
+  transform: translateX(-5px); 
+}

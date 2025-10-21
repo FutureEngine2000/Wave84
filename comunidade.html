@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wave84 - Comunidade</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="comunidade.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon"> 
+</head>
+<body>
+
+ <!-- Navbar simples -->
+    <header class="navbar">
+    
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburguer">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="logo">Wave84</div>
+        <nav>
+           <div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="historia.html">Histórias</a></li>
+                <li><a href="comunidade.html">Comunidade</a></li>
+                <li><a href="registro.html">Cadastre-se</a></li>
+                <li><a href="login.html">Login</a></li>
+                
+                <form action="usuario.html">
+
+               <form action="usuario.html">
+                
+                <div class="ft">
+<li>
+  <a href="usuario.html" class="user-profile">
+    <img id="navUserImage" src="img/user-icon-on-transparent-background-free-png.webp" width="50" height="50" style="border-radius: 50%;" />
+    <span id="navUserName" style="margin-left: 8px; color: #fff;"></span>
+  </a>
+</li>
+</div>
+
+                </form>
+            </ul>
+        </nav>
+    </header>
+
+  <!-- Conteúdo principal -->
+  <main class="main-content">
+    <section class="community-intro">
+      <h1>Junte-se à nossa Comunidade no Discord!</h1>
+      <p>
+        No Wave84, acreditamos que os games unem pessoas. Venha conversar, trocar dicas,
+        participar de eventos, competições e fazer parte de um grupo apaixonado por videogames!
+      </p>
+      <p>
+        Nosso servidor no Discord é um espaço seguro e acolhedor para todos os níveis,
+        desde iniciantes até veteranos.
+      </p>
+      <a href="https://discord.gg/j2nqffrf" target="_blank" class="cta-btn">
+        <i class='bx bxl-discord'></i> Entrar no Discord
+      </a>
+    </section>
+
+    <section class="community-rules">
+      <h2>Regras da Comunidade</h2>
+      <ul>
+        <li>Respeite todos os membros.</li>
+        <li>Evite spam e conteúdos ofensivos.</li>
+        <li>Use canais adequados para cada assunto.</li>
+        <li>Divirta-se e ajude os outros!</li>
+      </ul>
+      
+    </section>
+  </main>
+ <section class="user-phrase-section">
+  <div class="user-phrase-card" id="userPhraseCard">
+    <p><i class="fa-solid fa-comment-dots"></i> <span id="userPhraseText">Compartilhe também sua frase de efeito!</span></p>
+  </div>
+</section>
+
+
+
+ <footer class="footer">
+        <div class="footer-content">
+            <div class="logo">Wave84</div>
+            <p>Preservando a história dos video games para as futuras gerações</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/wave84_/"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.gg/j2nqffrf"><i class="fab fa-discord"></i></a>
+                <a href="https://github.com/FutureEngine2000"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 Wave84. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script>
+      // Verifica se há dados salvos no localStorage
+      const savedProfile = localStorage.getItem("gamerProfile");
+
+      if (savedProfile) {
+        const data = JSON.parse(savedProfile);
+
+        // Substitui a imagem do usuário
+        // O elemento 'navUserImage' já está na página neste ponto
+        const userImg = document.getElementById("navUserImage");
+        if (userImg && data.avatar) {
+          userImg.src = data.avatar;
+        }
+
+        // Adiciona o nome do usuário
+        const userNameSpan = document.getElementById("navUserName");
+        if (userNameSpan && data.username) {
+          userNameSpan.textContent = data.username;
+        }
+      }
+    </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const userPhraseText = document.getElementById("userPhraseText");
+  if (!userPhraseText) return console.warn('Elemento #userPhraseText não encontrado.');
+
+  // Tenta carregar tanto localStorage quanto sessionStorage (apenas pra checar)
+  const savedLocal = localStorage.getItem("gamerProfile");
+  const savedSession = sessionStorage.getItem("gamerProfile");
+
+  if (!savedLocal && !savedSession) {
+    console.warn('Nenhum gamerProfile encontrado em localStorage ou sessionStorage.');
+    userPhraseText.textContent = "Compartilhe também sua frase de efeito!";
+    return;
+  }
+
+  // Prefer localStorage quando existir
+  const raw = savedLocal || savedSession;
+  console.log("raw gamerProfile:", raw);
+
+  try {
+    const data = JSON.parse(raw);
+    console.log("parsed gamerProfile object:", data);
+
+    // função utilitária para tentar várias chaves comuns
+    function findPhrase(obj) {
+      if (!obj || typeof obj !== 'object') return '';
+      const tried = [
+        'frase','phrase','phraseEffect','userPhrase','effect','slogan','mensagem','message','bio','tagline','signature'
+      ];
+      for (const k of tried) {
+        if (obj[k] && typeof obj[k] === 'string' && obj[k].trim().length > 0) return obj[k].trim();
+      }
+      // fallback: pega a primeira propriedade string significativa
+      for (const k in obj) {
+        if (typeof obj[k] === 'string' && obj[k].trim().length > 3) {
+          return obj[k].trim();
+        }
+      }
+      return '';
+    }
+
+    function findUsername(obj) {
+      if (!obj || typeof obj !== 'object') return '';
+      return (obj.username || obj.user || obj.name || obj.nome || obj.nick || '') ;
+    }
+
+    const phrase = findPhrase(data);
+    const username = findUsername(data);
+
+    if (phrase) {
+      if (username) {
+        userPhraseText.textContent = `Compartilhe na comunidade "${phrase} "💬`;
+      } else {
+        userPhraseText.textContent = `💬 Compartilhe também: "${phrase}"`;
+      }
+    } else {
+      userPhraseText.textContent = "💬 Compartilhe também sua frase de efeito!";
+    }
+
+  } catch (err) {
+    console.error("Erro ao parsear gamerProfile:", err);
+    userPhraseText.textContent = "💬 Compartilhe também sua frase de efeito!";
+  }
+});
+</script>
+
+
+
+
+</body>
+</html>

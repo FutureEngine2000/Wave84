@@ -1,0 +1,431 @@
+/* Reset e variáveis de tema futurístico simplificado */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #ffffff;
+  --accent: #00d9ff;
+  --accent-secondary: #8b5cf6;
+  --background: #0a0a16;
+  --surface: #15152a;
+  --surface-light: rgba(26, 26, 46, 0.4);
+  --transition: all 0.3s ease;
+}
+
+/* Corpo com tema espacial limpo */
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--background);
+  color: var(--primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+    background-image: url(img/cid.png);
+    
+}
+
+/* Efeito de grade sutil */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+}
+
+/* Navbar minimalista */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 10, 22, 0.95);
+  padding: 1rem 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+  width: 80%;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Conteúdo principal limpo */
+.main-content {
+  max-width: 900px;
+  background: rgba(21, 21, 42, 0.6);
+  margin: 100px auto 40px;
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+/* Seção de introdução */
+.community-intro {
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.community-intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.community-intro p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Botão Discord simplificado */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--accent-secondary);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.cta-btn:hover {
+  background: transparent;
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+.cta-btn i {
+  margin-right: 0.5rem;
+}
+
+/* Seção de regras simplificada */
+.community-rules {
+  background: var(--surface-light);
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+}
+
+.community-rules h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  text-align: center;
+  font-weight: 600;
+}
+
+.community-rules ul {
+  list-style: none;
+  font-size: 1.1rem;
+}
+
+.community-rules ul li {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid var(--accent-secondary);
+  transition: var(--transition);
+}
+
+.community-rules ul li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(5px);
+}
+
+.community-rules ul li::before {
+  content: '▸';
+  color: var(--accent);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .main-content {
+    margin: 140px 1rem 2rem;
+    padding: 1.5rem;
+  }
+  
+  .community-intro h1 {
+    font-size: 2rem;
+  }
+  
+  .community-rules {
+    padding: 1.5rem;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .community-intro h1 {
+    font-size: 1.8rem;
+  }
+  
+  .community-rules {
+    padding: 1rem;
+  }
+  
+  .community-rules ul li {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+.footer {
+    background: rgba(10, 10, 22, 0.95);
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(0, 217, 255, 0.3);
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.footer .social-links a {
+    color: var(--primary);
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.footer .social-links a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.footer p:last-of-type {
+    margin-top: 2rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+/* Responsividade do footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0;
+        margin-top: 3rem;
+    }
+    
+    .footer-content {
+        padding: 0 1rem;
+    }
+    
+    .footer .social-links {
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .footer .social-links a {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 1.5rem 0;
+    }
+    
+    .footer .social-links {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    
+    .footer .social-links a {
+        font-size: 1.2rem;
+    }
+    
+    .footer p {
+        font-size: 0.9rem;
+    }
+}
+
+.user-phrase-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.user-phrase-card {
+  background: rgba(120, 60, 200, 0.25);
+  border: 2px solid #a066ff;
+  border-radius: 20px;
+  padding: 25px 30px;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  box-shadow: 0 0 15px #a066ff;
+  width: fit-content;
+  max-width: 600px;
+  transition: 0.3s ease;
+}
+
+.user-phrase-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px #c489ff;
+}
+
+/*responsividade do hamburguer*/
+.hamburguer{
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  z-index: 1000;
+}
+.hamburguer span{
+  height: 3px;
+  width: 25px;
+  background: #8b5cf6;
+  margin-bottom: 4px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+#menu-toggle{
+  display: none;
+}
+@media (max-width: 900px){
+  .hamburguer{
+    display: flex;
+  }
+  .nav-links{
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    top: 0;
+    background: rgba(10, 10, 22, 0.95);
+    flex-direction: column;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: var(--transition);
+  }
+  .nav-links a{
+    font-size: 1.2rem;
+  }
+  #menu-toggle:checked + .hamburguer span:nth-child(1){
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  #menu-toggle:checked + .hamburguer span:nth-child(2){
+    opacity: 0;
+  }
+  #menu-toggle:checked + .hamburguer span:nth-child(3){
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  #menu-toggle:checked ~ nav .nav-links{
+    transform: translateX(0);
+  }
+}
