@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (phrase) {
       if (username) {
-        userPhraseText.textContent = `Compartilhe na comunidade o seu gosto: "${phrase} "💬`;
+        userPhraseText.textContent = `Compartilhe na comunidade o seu gosto: "${phrase} "`;
       } else {
         userPhraseText.textContent = `💬 Compartilhe também: "${phrase}"`;
       }
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   } catch (err) {
     console.error("Erro ao parsear gamerProfile:", err);
-    userPhraseText.textContent = "💬 Compartilhe também sua frase de efeito!";
+    userPhraseText.textContent = "💬 Compartilhe também seu gosto!";
   }
 });
 </script>
