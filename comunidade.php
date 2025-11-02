@@ -63,9 +63,9 @@ if (isset($_SESSION['usuario_id'])) {
                 <li><a href="registro.html">Cadastre-se</a></li>
                 <li><a href="login.html">Login</a></li>
                 
-                <form action="usuario.html">
+                <form action="usuario.php">
 
-               <form action="usuario.html">
+               <form action="usuario.php">
                 
                 <div class="ft">
 <li>
@@ -133,4 +133,5 @@ if (isset($_SESSION['usuario_id'])) {
     </footer>
 
 </body>
+
 </html>
