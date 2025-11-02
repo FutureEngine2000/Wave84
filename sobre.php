@@ -58,16 +58,16 @@ if (isset($_SESSION['usuario_id'])) {
         <nav>
            <div>
             <ul class="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="historia.html">Histórias</a></li>
-                <li><a href="comunidade.html">Comunidade</a></li>
+                 <li><a href="index.php">Início</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
+                <li><a href="historia.php">Histórias</a></li>
+                <li><a href="comunidade.php">Comunidade</a></li>
                 <li><a href="registro.html">Cadastre-se</a></li>
                 <li><a href="login.html">Login</a></li>
                 
-                <form action="usuario.html">
+                <form action="usuario.php">
 
-               <form action="usuario.html">
+               <form action="usuario.php">
                 
                 <div class="ft">
 <li>
@@ -165,5 +165,6 @@ if (isset($_SESSION['usuario_id'])) {
     </div>
   </footer>
 </body>
+
 
 </html>
