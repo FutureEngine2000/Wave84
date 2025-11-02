@@ -1,8 +1,15 @@
 <?php
 session_start();
+
+  // Se já estiver logado, vai direto pro perfil
+  if (isset($_SESSION['usuario_id'])) {
+    header("Location: usuario.php");
+    exit();
+  }
+
     $servername = "localhost";
     $username = "root";
-    $password = "admin";
+    $password = "";
     $dbname = "wave84";
 
     $conn = mysqli_connect($servername, $username, $password, $dbname);

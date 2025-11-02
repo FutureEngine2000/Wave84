@@ -1,24 +1,18 @@
 <?php
 session_start();
 
-    if (isset($_SESSION['usuario_id'])) {
-        header("Location: painel.php");
-        exit();
-    }
-    
-$servername = "localhost";
-$username = "root";
-$password = "admin";
-$dbname = "wave84";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-if (!$conn) {
-    die("Falha na conexão: " . mysqli_connect_error());
+// Se já estiver logado, vai direto pro perfil
+if (isset($_SESSION['usuario_id'])) {
+    header("Location: usuario.php");
+    exit();
 }
 
-mysqli_set_charset($conn, 'utf8');
+// Conexão com o banco
+$conn = new mysqli("localhost", "root", "", "wave84");
+if ($conn->connect_error) die("Erro: " . $conn->connect_error);
+$conn->set_charset("utf8");
 
+// Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $usuario = $_POST['usuario'] ?? '';
     $senha = $_POST['senha'] ?? '';
@@ -28,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit();
     }
 
+    // Busca o usuário no banco
     $stmt = $conn->prepare("SELECT id, nome, usuario, senha FROM usuarios WHERE usuario = ?");
     $stmt->bind_param("s", $usuario);
     $stmt->execute();
@@ -36,12 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
 
+        // Verifica a senha
         if (password_verify($senha, $row['senha'])) {
             $_SESSION['usuario_id'] = $row['id'];
             $_SESSION['usuario_nome'] = $row['nome'];
             $_SESSION['usuario_login'] = $row['usuario'];
 
-            header("Location: painel.php");
+            header("Location: usuario.php");
             exit();
         } else {
             echo "Senha incorreta.";
